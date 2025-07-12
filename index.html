@@ -80,6 +80,14 @@
             font-size: 1.5rem;
             font-weight: bold;
             animation: pulse 2s infinite;
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         @keyframes pulse {
@@ -144,6 +152,14 @@
             justify-content: center;
             font-size: 8rem;
             animation: float 3s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .hero-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         @keyframes float {
@@ -171,6 +187,11 @@
             background: rgba(255, 87, 34, 0.05);
             border-radius: 20px;
             margin: 2rem 0;
+            perspective: 1000px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+			margin-left : 10%;
         }
 
         .about h2 {
@@ -178,6 +199,42 @@
             margin-bottom: 2rem;
             text-align: center;
             color: #ff5722;
+            position: relative;
+            z-index: 10;
+        }
+
+        .starwars-text {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
+            color: #ffeb3b;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            animation: starwars-scroll 15s linear infinite;
+            transform-origin: 50% 100%;
+        }
+
+        @keyframes starwars-scroll {
+            0% {
+                top: 100%;
+                transform: translateX(-50%) rotateX(20deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: -50%;
+                transform: translateX(-50%) rotateX(20deg) scale(0.3);
+                opacity: 0;
+            }
         }
 
         .about p {
@@ -186,6 +243,7 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         /* Tokenomics */
@@ -384,7 +442,7 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <div class="logo-img">🦖</div>
+                <div class="logo-img"><img src = "1.png" /></div>
                 <div class="logo-text">MarsZilla</div>
             </div>
             <a href="#buy" class="buy-btn">Buy $ZLA</a>
@@ -395,7 +453,10 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-media">
-                🚀
+                <video autoplay muted loop>
+                    <source src="zilla.mp4" type="video/mp4">
+                    
+                </video>
             </div>
             <h1>MarsZilla ($ZLA)</h1>
             <p class="slogan">The ultimate meme coin from the Red Planet</p>
@@ -405,11 +466,11 @@
         <!-- About Section -->
         <section class="section about">
             <h2>About MarsZilla</h2>
-            <p>
+            <div class="starwars-text">
                 MarsZilla ($ZLA) est le roi intergalactique des memecoins. Il vient de Mars pour conquérir Solana. 
                 Avec 1 milliard de tokens, mint et freeze révoqués, et 0% de taxe, MarsZilla est prêt à dominer 
                 l'univers crypto. Rejoignez l'invasion martienne et devenez partie de la légende !
-            </p>
+            </div>
         </section>
 
         <!-- Tokenomics Section -->
